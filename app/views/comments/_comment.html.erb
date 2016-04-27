@@ -1,0 +1,15 @@
+<div class="comment clearfix">
+	<div class="comment_content">
+		<p class="comment_name"><strong><%= comment.name %></strong></p>
+		<p class="comment_body"><%= comment.body %></p>
+		<p class="comment_time">Dodany: <%= comment.created_at.strftime("%d/%m/%Y, %H:%M") %></p>
+	</div>
+
+	<% if user_signed_in? %>
+		<p><%= link_to 'Usuń', [comment.post, comment],
+					   method: :delete,
+					   class: "button",
+					   data: { confirm: "Czy jesteś pewien?" } %>
+		</p>
+	<% end %>
+</div>
